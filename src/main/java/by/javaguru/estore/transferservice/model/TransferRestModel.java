@@ -1,0 +1,32 @@
+package by.javaguru.estore.transferservice.model;
+
+import java.math.BigDecimal;
+
+public class TransferRestModel {
+    //кто отправляет
+    private String senderId;
+    //кому отправляем
+    private String recepientId;
+    //сколько денег
+    private BigDecimal amount;
+
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+    public String getSenderId() {
+        return senderId;
+    }
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+    public String getRecepientId() {
+        return recepientId;
+    }
+    public void setRecepientId(String recepientId) {
+        this.recepientId = recepientId;
+    }
+}
