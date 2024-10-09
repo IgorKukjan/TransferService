@@ -68,6 +68,41 @@ public class TransferServiceImpl implements TransferService{
         return true;
     }
 
+//    @Override
+//    @Transactional
+//    public boolean transfer(TransferRestModel transferRestModel) {
+//
+//        WithdrawalRequestedEvent withdrawalRequestedEvent = new WithdrawalRequestedEvent(transferRestModel.getSenderId(),
+//                transferRestModel.getRecepientId(),
+//                transferRestModel.getAmount());
+//        DepositRequestedEvent depositRequestedEvent =  new DepositRequestedEvent(transferRestModel.getSenderId(),
+//                transferRestModel.getRecepientId(),
+//                transferRestModel.getAmount());
+//
+//        try {
+//
+//            boolean result = kafkaTemplate.executeInTransaction(t -> {
+//                t.send(environment.getProperty("withdraw-money-topic", "withdraw-money-topic"), withdrawalRequestedEvent);
+//                LOGGER.info("Sent event to withdrawal topic.");
+//
+//                t.send(environment.getProperty("deposit-money-topic", "deposit-money-topic"), depositRequestedEvent);
+//                LOGGER.info("Sent event to deposit topic");
+//
+//                return true;
+//            });
+//
+//            // Business logic that causes and error
+//            callRemoteService();
+//
+//
+//        } catch (Exception ex) {
+//            LOGGER.error(ex.getMessage(), ex);
+//            throw new TransferServiceException(ex);
+//        }
+//
+//        return true;
+//    }
+
     private ResponseEntity<String> callRemoteService() throws Exception{
         String url = "http://localhost:8082/response/200";
 
